@@ -1,0 +1,10 @@
+C:\Users\user\source\repos\賭場輪盤\賭場輪盤\obj\Debug\賭場輪盤.csproj.AssemblyReference.cache
+C:\Users\user\source\repos\賭場輪盤\賭場輪盤\obj\Debug\賭場輪盤.Form1.resources
+C:\Users\user\source\repos\賭場輪盤\賭場輪盤\obj\Debug\賭場輪盤.csproj.GenerateResource.cache
+C:\Users\user\source\repos\賭場輪盤\賭場輪盤\bin\Debug\賭場輪盤.exe.config
+C:\Users\user\source\repos\賭場輪盤\賭場輪盤\bin\Debug\賭場輪盤.exe
+C:\Users\user\source\repos\賭場輪盤\賭場輪盤\bin\Debug\賭場輪盤.pdb
+C:\Users\user\source\repos\賭場輪盤\賭場輪盤\obj\Debug\賭場輪盤.Properties.Resources.resources
+C:\Users\user\source\repos\賭場輪盤\賭場輪盤\obj\Debug\賭場輪盤.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\賭場輪盤\賭場輪盤\obj\Debug\賭場輪盤.exe
+C:\Users\user\source\repos\賭場輪盤\賭場輪盤\obj\Debug\賭場輪盤.pdb
