@@ -75,7 +75,7 @@ namespace CSIE_Roulette
             }
             else if(e.Control && e.KeyCode == Keys.Down)
             {
-                count--;
+                if(count > 0) count--;
                 MessageBox.Show(count.ToString());
             }
             else if (e.Control && e.KeyCode == Keys.D0)
