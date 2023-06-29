@@ -1,7 +1,7 @@
 # CSIE_Roulette
 
 ## How to use
-1. Download from [releases](https://github.com/Jimmy01240397/CSIE_Roulette/releases)
+1. Download `CSIE_Roulette.zip` from [releases](https://github.com/Jimmy01240397/CSIE_Roulette/releases) and unzip it
 2. Fix your `config.yaml`
 ``` yaml
 # SmallPrizeChance mean your Small Prize Chance (0 ~ 100)
@@ -12,6 +12,9 @@ BigPrizeTime:
 - 15:59
 ```
 3. Execute CSIE_Roulette.exe
+4. use 1~5 button to draw
+![image](https://github.com/Jimmy01240397/CSIE_Roulette/assets/57281249/9a6d9c64-65d2-491e-9382-934ebcc2fe42)
+
 
 ## Secret Key
 1. `Ctrl+0` for show the BigPrizeTime index
