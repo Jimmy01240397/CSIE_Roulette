@@ -1,7 +1,7 @@
 # CSIE_Roulette
 
 ## How to use
-1. Download from [releases](https://github.com/OpenVPN/tap-windows6/releases)
+1. Download from [releases](https://github.com/Jimmy01240397/CSIE_Roulette/releases)
 2. Fix your `config.yaml`
 ``` yaml
 # SmallPrizeChance mean your Small Prize Chance (0 ~ 100)
