@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace 賭場輪盤
+namespace CSIE_Roulette
 {
     public class Roulette : Panel
     {
@@ -41,7 +42,7 @@ namespace 賭場輪盤
                 point.Size = new Size((int)(1f / 11f * startsize.Width), (int)(19f / 275f * startsize.Height));
                 startpointlocation = new Point(startsize.Width - point.Size.Width / 2, startsize.Height / 2 - point.Size.Height / 2);
 
-                picture.Image = Rotating((System.Drawing.Image)(form1.resources.GetObject("pictureBox1.Image")), (int)angle, startsize.Width, startsize.Height);
+                picture.Image = Rotating(Image.FromFile("images\\roulette.png"), (int)angle, startsize.Width, startsize.Height);
                 picture.Location = new Point(startpicturelocation.X - (picture.Size.Width - startsize.Width) / 2, startpicturelocation.Y - (picture.Size.Height - startsize.Height) / 2);
                 point.Location = new Point(startpointlocation.X + (picture.Size.Width - startsize.Width) / 2, startpointlocation.Y + (picture.Size.Height - startsize.Height) / 2);
             }
@@ -74,7 +75,7 @@ namespace 賭場輪盤
             nowstatus.TabIndex = 2;
             nowstatus.Text = "";
 
-            picture.Image = ((System.Drawing.Image)(form1.resources.GetObject("pictureBox1.Image")));
+            picture.Image = Image.FromFile("images\\roulette.png");
             picture.Location = new System.Drawing.Point(10, 10);
             picture.Name = "picture";
             picture.Size = new System.Drawing.Size(550, 550);
@@ -83,7 +84,7 @@ namespace 賭場輪盤
             picture.TabStop = false;
 
             point.BackColor = System.Drawing.Color.Transparent;
-            point.Image = ((System.Drawing.Image)(form1.resources.GetObject("pictureBox2.Image")));
+            point.Image = Image.FromFile("images\\point.png");
             point.Location = new Point(picture.Size.Width - picture.Size.Width / 2, picture.Size.Height / 2 - picture.Size.Height / 2);
 
             point.Name = "point";
@@ -112,7 +113,7 @@ namespace 賭場輪盤
 
                 int now = Math.Abs(Guid.NewGuid().GetHashCode()) % 10;
 
-                if (!big) end = now % 10 == 0 ? 1 : 0;
+                if (!big) end = now % 100 < Config.Instance.SmallPrizeChance ? 1 : 0;
                 else end = 2;
                 //nowstatus.Text = "" + ;
 
@@ -158,7 +159,7 @@ namespace 賭場輪盤
             else realspeed = 0;
 
             angle = (angle + realspeed * form1.deltatime) % 360;
-            picture.Image = Rotating((System.Drawing.Image)(form1.resources.GetObject("pictureBox1.Image")), (int)angle, startsize.Width, startsize.Height);
+            picture.Image = Rotating(Image.FromFile("images\\roulette.png"), (int)angle, startsize.Width, startsize.Height);
             picture.Location = new Point(startpicturelocation.X - (picture.Size.Width - startsize.Width) / 2, startpicturelocation.Y - (picture.Size.Height - startsize.Height) / 2);
             point.Location = new Point(startpointlocation.X + (picture.Size.Width - startsize.Width) / 2, startpointlocation.Y + (picture.Size.Height - startsize.Height) / 2);
 

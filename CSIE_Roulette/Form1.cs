@@ -8,12 +8,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using YamlDotNet;
 
-namespace 賭場輪盤
+namespace CSIE_Roulette
 {
     public partial class Form1 : Form
     {
-        public ComponentResourceManager resources { get; private set; }
         Stopwatch stopwatch = new Stopwatch();
 
         public float deltatime
@@ -32,13 +32,11 @@ namespace 賭場輪盤
 
         string[] date;
         int count = 0;
-        public Form1(string[] date)
+        public Form1()
         {
             InitializeComponent();
 
-            this.date = date;
-
-            resources = new ComponentResourceManager(typeof(Form1));
+            this.date = Config.Instance.BigPrizeTime.ToArray();
 
             int heigth = (int)(((float)Size.Height - 40f) / 2f);
             int width = (int)(119f / 132f * heigth);
@@ -68,27 +66,43 @@ namespace 賭場輪盤
             stopwatch.Restart();
         }
 
-        private void Form1_KeyPress(object sender, KeyPressEventArgs e)
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            bool big = false;
-
-            if (count < date.Length)
+            if(e.Control && e.KeyCode == Keys.Up)
             {
-                int targetmin = Convert.ToInt32(Convert.ToDateTime(date[count]).ToString("HH")) * 60 + Convert.ToInt32(Convert.ToDateTime(date[count]).ToString("mm"));
-                int nowmin = Convert.ToInt32(DateTime.Now.ToString("HH")) * 60 + Convert.ToInt32(DateTime.Now.ToString("mm"));
-
-                if (targetmin <= nowmin)
-                {
-                    big = true;
-                    count++;
-                }
+                count++;
+                MessageBox.Show(count.ToString());
             }
-
-            if (e.KeyChar >= '1' && e.KeyChar <= '5')
+            else if(e.Control && e.KeyCode == Keys.Down)
             {
-                roulettes[e.KeyChar - '1'].Start(big);
+                count--;
+                MessageBox.Show(count.ToString());
+            }
+            else if (e.Control && e.KeyCode == Keys.D0)
+            {
+                MessageBox.Show(count.ToString());
+            }
+            else if (e.KeyValue >= '1' && e.KeyValue <= '5')
+            {
+                bool big = false;
+                if (count < date.Length)
+                {
+                    int targetmin = Convert.ToInt32(Convert.ToDateTime(date[count]).ToString("HH")) * 60 + Convert.ToInt32(Convert.ToDateTime(date[count]).ToString("mm"));
+                    int nowmin = Convert.ToInt32(DateTime.Now.ToString("HH")) * 60 + Convert.ToInt32(DateTime.Now.ToString("mm"));
+
+                    if (targetmin <= nowmin)
+                    {
+                        big = true;
+                        count++;
+                    }
+                }
+                roulettes[e.KeyValue - '1'].Start(big);
                 big = false;
             }
+        }
+
+        private void Form1_KeyPress(object sender, KeyPressEventArgs e)
+        {
         }
 
         private void Form1_Resize(object sender, EventArgs e)
