@@ -111,9 +111,9 @@ namespace CSIE_Roulette
 
                 speed = allspeed - Math.Abs(Guid.NewGuid().GetHashCode()) % 1000;
 
-                int now = Math.Abs(Guid.NewGuid().GetHashCode()) % 10;
+                int now = Math.Abs(new Random(Guid.NewGuid().GetHashCode()).Next(0, 100)) % 100;
 
-                if (!big) end = now % 100 < Config.Instance.SmallPrizeChance ? 1 : 0;
+                if (!big) end = now < Config.Instance.SmallPrizeChance ? 1 : 0;
                 else end = 2;
                 //nowstatus.Text = "" + ;
 
